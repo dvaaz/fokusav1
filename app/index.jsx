@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { StyleSheet } from "react-native";
+import { ActionButton } from "../components/ActionButton";
+import { FokusButton } from "../components/FokusButton";
 
 // Pomodoro é um array de objetos com diferentes atributos que serão utilizados em nosso código
 const pomodoro = [
@@ -67,35 +69,37 @@ export default function Index() {
     timerRef.current = id
   }
 
-
   return (
-    <View style={styles.container}>
+    <View
+      style={styles.container}
+    >
       <Image source={timerType.image}/>
       <View style={styles.actions}>
-        <View style={styles.context}>          
-        { // Dentro do React chamamos o JS dentro de chaves {}
-          pomodoro.map( p=>
-            <ActionButton
+        <View style={styles.context}>
+          {pomodoro.map(p => (
+            <ActionButton 
               key={p.id}
-              active={timerType.id === p.id}
-              onPress={() => setTimerType(p)}
+              active={ timerType.id === p.id }
+              onPress={() => toggleTimerType(p)}
               display={p.display}
             />
-          )
-        }
+          ))}
+
         </View>
         <TimerDisplay totalSeconds = {timerType.initialValue}/>
-
-          <FokusButton 
-            press={toogleTimer}
-            title={timerRef.current ? 'Pausar' : 'Começar'}
-          /> 
-        </View>
+        
+        <FokusButton 
+          title={timerRunning ? 'Pausar' : 'Começar'}
+          onPress={toggleTimer}
+        />
+      </View>
       <View style={styles.footer}>
         <Text style={styles.footerText}>
-          Projeto fictício e sem fins comerciais.
-          <br/> Desenvolvido por Aluno XxX.
-          </Text>
+          Projeto fictício e sem fins comerciais. . .
+        </Text>
+        <Text style={styles.footerText}>
+          Desenvolvido por mim com o auxilio do professor Will. 
+        </Text>
       </View>
     </View>
   );
