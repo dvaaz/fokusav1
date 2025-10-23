@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text } from "react-native";
 
 // inicio do component
 export const TimerDisplay=({ totalSeconds }) =>{

@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { StyleSheet } from "react-native";
+import React, { useRef, useState } from "react";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { ActionButton } from "../components/ActionButton";
 import { FokusButton } from "../components/FokusButton";
+import { TimerDisplay } from "../components/TimerDisplay";
 
 // Pomodoro é um array de objetos com diferentes atributos que serão utilizados em nosso código
 const pomodoro = [
@@ -26,7 +27,7 @@ const pomodoro = [
   
 ] 
 
-// Hook do contador
+// Hook do relogio
 export default function Index() {
 
   const [timerType, setTimerType] = useState(pomodoro[0]) // armazena o tipo de cronometro atual
@@ -42,8 +43,8 @@ export default function Index() {
       setTimerRunning(false)
     }
   }
-
-  const toggleTimerType = (newTimerType) => { // funcao para armazenar o tempo do pomodoro
+// funcao para armazenar o tempo do pomodoro
+  const toggleTimerType = (newTimerType) => { 
     setTimerType(newTimerType) // set o times
     setSeconds(newTimerType.initialValue) // atualiza os segundos para o tempo inicial
     clear() // chama o clear para parar outros cronometros
@@ -68,6 +69,7 @@ export default function Index() {
     }, 1000)
     timerRef.current = id
   }
+  // fim da logica de relogio
 
   return (
     <View
@@ -84,13 +86,13 @@ export default function Index() {
               display={p.display}
             />
           ))}
-
         </View>
-        <TimerDisplay totalSeconds = {timerType.initialValue}/>
+
+        <TimerDisplay totalSeconds = {seconds}/> {/* passa os segundos pelo hook */}
         
         <FokusButton 
           title={timerRunning ? 'Pausar' : 'Começar'}
-          onPress={toggleTimer}
+          press={toggleTimer}
         />
       </View>
       <View style={styles.footer}>
