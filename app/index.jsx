@@ -29,7 +29,7 @@ const pomodoro = [
   // {
   //   id: "custom",
   //   initialValue: inputValue, // criar funcao para o input de tempo personalizado, a função deve retornar o numero * 60
-  //   image: require('../assets/images/duckDogers.png'),
+  //   image: require('../assets/images/long.png'),
   //   display: "Peronalizado",
   // }
   
