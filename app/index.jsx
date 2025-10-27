@@ -23,7 +23,7 @@ const pomodoro = [
   {
     id: "long",
     initialValue: 2700,
-    image: require('../assets/images/long.png'),
+    image: require('../assets/images/duckDogers.png'),
         display: "Pausa longa",
   },
   // {
