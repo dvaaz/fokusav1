@@ -5,6 +5,8 @@ import { FokusButton } from "../components/FokusButton";
 import { TimerDisplay } from "../components/TimerDisplay";
 
 // Pomodoro é um array de objetos com diferentes atributos que serão utilizados em nosso código
+
+
 const pomodoro = [
   {
   id: "fokus", //* id do objeto*/}
@@ -24,6 +26,12 @@ const pomodoro = [
     image: require('../assets/images/long.png'),
         display: "Pausa longa",
   },
+  // {
+  //   id: "custom",
+  //   initialValue: inputValue, // criar funcao para o input de tempo personalizado, a função deve retornar o numero * 60
+  //   image: require('../assets/images/duckDogers.png'),
+  //   display: "Peronalizado",
+  // }
   
 ] 
 
