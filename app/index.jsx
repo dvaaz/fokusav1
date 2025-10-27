@@ -1,7 +1,8 @@
 import React, { useRef, useState } from "react";
-import { Image, StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 import { ActionButton } from "../components/ActionButton";
 import { FokusButton } from "../components/FokusButton";
+import { Footer } from "../components/Footer";
 import { TimerDisplay } from "../components/TimerDisplay";
 
 // Pomodoro é um array de objetos com diferentes atributos que serão utilizados em nosso código
@@ -23,13 +24,13 @@ const pomodoro = [
   {
     id: "long",
     initialValue: 2700,
-    image: require('../assets/images/duckDogers.png'),
+    image: require('../assets/images/long.png'),
         display: "Pausa longa",
   },
   // {
   //   id: "custom",
   //   initialValue: inputValue, // criar funcao para o input de tempo personalizado, a função deve retornar o numero * 60
-  //   image: require('../assets/images/long.png'),
+  //   image: require('../assets/images/duckDogers.png'),
   //   display: "Peronalizado",
   // }
   
@@ -103,14 +104,7 @@ export default function Index() {
           press={toggleTimer}
         />
       </View>
-      <View style={styles.footer}>
-        <Text style={styles.footerText}>
-          Projeto fictício e sem fins comerciais. . .
-        </Text>
-        <Text style={styles.footerText}>
-          Desenvolvido por mim com o auxilio do professor Will. 
-        </Text>
-      </View>
+      <Footer/>
     </View>
   );
 }
@@ -140,12 +134,5 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     alignItems: 'center'
   },
-  footer: {
-    width: '80%',
-  },
-  footerText: {
-    textAlign: 'center',
-    color: '#98A0A8',
-    fontSize: 12.5
-  }
-})
+
+});
